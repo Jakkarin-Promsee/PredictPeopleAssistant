@@ -8,11 +8,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "We use mongodb://localhost:27017/density_of_people to DB\r with \"working\", \"weekend\", \"holiday\" and \"temporary\" collection",
   "dependencies": {
+    "@tensorflow/tfjs-node": "3.1.0",
     "csv-parser": "^3.0.0",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "mongoose": "^8.5.3"
+    "mongoose": "^8.5.3",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

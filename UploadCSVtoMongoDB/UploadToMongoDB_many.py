@@ -2,7 +2,7 @@ import pandas as pd
 from pymongo import MongoClient
 
 datagbase_name = 'density_of_people'
-collection_name = 'weekend'
+collection_name = 'Area5'
 
 # Load your original DataFrame
 df = pd.read_csv(r'UploadCSVtoMongoDB\df_working_during_semester.csv')

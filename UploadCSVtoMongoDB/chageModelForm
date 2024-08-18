@@ -1,0 +1,8 @@
+import tensorflow as tf
+from tensorflow import keras
+
+# Load your .h5 model
+model = keras.models.load_model('models_AI/my_new_model_3_30.h5')
+
+# Save the model in TensorFlow.js format
+tf.converters.save_keras_model(model, 'models_AI/')

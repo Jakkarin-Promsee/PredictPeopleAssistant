@@ -17,12 +17,12 @@ df['minute'] = df['date'].dt.minute
 # Filter the data for the specific day and other conditions
 df_working_during_semester = df[
     (df['is_weekend'] == 0) &
-    (df['is_holiday'] == 1) &
+    (df['is_holiday'] == 0) &
     (df['is_during_semester'] == 1)
 ]
 
 # Cleaning column that unused.
-df_working_during_semester = df_working_during_semester[['dater', 'time', 'number_people']]
+df_working_during_semester = df_working_during_semester[['dater', 'time', 'number_people', 'is_weekend', 'is_holiday']]
 
 # Optionally, reset the index if needed (index will reset, start to  0 again)
 df_working_during_semester.reset_index(drop=True, inplace=True)
@@ -32,14 +32,15 @@ count_date = df_working_during_semester['dater'].value_counts()
 
 
 # Keep sample day for use in future
-day_sample = 10
+day_start = 80
+day_sample = 20
 
 #Create datafram center
 DB = pd.DataFrame(columns=df_working_during_semester.columns)
 
 
 for date_idx in range(day_sample):
-  date = count_date.index[date_idx]
+  date = count_date.index[date_idx+day_start]
 
   # Filter the data for the specific day and other conditions
   filtered_df = df_working_during_semester[
@@ -60,4 +61,6 @@ new_file_name = 'UploadCSVtoMongoDB/df_working_during_semester.csv'
 # Save the DataFrame to the new CSV file
 DB.to_csv(new_file_name, index=False)
 
-print(DB.head(5))
+
+print(DB.info())
+#print(DB.head(5))
