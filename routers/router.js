@@ -5,28 +5,6 @@ const fs = require('fs');
 const path = require('path');
 const { time } = require('console');
 
-function readFileAndProcess(callback) {
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading the file:', err);
-            return;
-        }
-
-        try {
-            // Parse the JSON data
-            const jsonData = JSON.parse(data);
-
-            // Access the data at index 0
-            const indexData = jsonData[0];
-
-            // Call the callback with the indexData
-            callback(indexData);
-        } catch (parseError) {
-            console.error('Error parsing JSON data:', parseError);
-        }
-    });
-}
-
 router.get('/', (req, res) => {
     const { area, idx } = req.query;
 
@@ -71,9 +49,9 @@ router.get('/', (req, res) => {
 });
 
 // Route to get data from MongoDB
-router.get('/data', dataController.getAllData);
+// router.get('/data', dataController.getAllData);
 
-// Route to get data by a specific date
-router.get('/datas', dataController.getDataByDate);
+// // Route to get data by a specific date
+// router.get('/datas', dataController.getDataByDate);
 
 module.exports = router;

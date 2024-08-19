@@ -18,7 +18,7 @@ const port = 3000;
 const mongoURI = 'mongodb://localhost:27018/density_of_people';
 
 //for like local server to port 3000
-app.listen(port, "0.0.0.0", function () {
+app.listen(port, () => {
     console.log("Listening to port:  " + port);
 });
 
