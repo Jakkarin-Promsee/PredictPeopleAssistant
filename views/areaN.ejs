@@ -27,12 +27,18 @@
                 <canvas id="myChart" width="600" height="400"></canvas>
             </div>
             <div class="advice-container">
-                <p>Advice</p>
+                <div class="advice-subcontainer">
+                <h3>Advice For you</h3>
                 <div class="search-container">
                     <input type="text" id="search" placeholder="Search term">
                     <button id="searchButton">Search</button>
                 </div>
             </div>
+            <div class="advice-subcontainer">
+                <p><%= upstage_api %></p>
+            </div>
+            </div>
+            
         </div>
     </main>
     <script>

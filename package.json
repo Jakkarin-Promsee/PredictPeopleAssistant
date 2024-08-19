@@ -11,9 +11,11 @@
   "description": "We use mongodb://localhost:27017/density_of_people to DB\r with \"working\", \"weekend\", \"holiday\" and \"temporary\" collection",
   "dependencies": {
     "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "openai": "^4.56.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
