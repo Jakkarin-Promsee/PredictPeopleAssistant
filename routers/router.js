@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const dataController = require('../controllers/dataController');
 const fs = require('fs');
-const path = require('path');
-const { time } = require('console');
 
 router.get('/', (req, res) => {
     const { area, idx } = req.query;

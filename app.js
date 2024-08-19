@@ -14,7 +14,6 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 const port = 3000;
-const mongoURI = 'mongodb://localhost:27018/density_of_people';
 
 //for like local server to port 3000
 app.listen(port, () => {
