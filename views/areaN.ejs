@@ -16,8 +16,8 @@
         </h1>
         <nav>
             <ul>
-                <li><button onclick="goTopage('/?area=<% let before = Number(area_number)-1; %><%= before %>&idx=<%= idx %>')"> Back Area </button></li>
-                <li><button onclick="goTopage('/?area=<% let after = Number(area_number)+1; %><%= after %>&idx=<%= idx %>')"> Next Area </button></li>
+                <li><button onclick="goTopage('/data?area=<% let before = Number(area_number)-1; %><%= before %>&idx=<%= idx %>')"> Back Area </button></li>
+                <li><button onclick="goTopage('/data?area=<% let after = Number(area_number)+1; %><%= after %>&idx=<%= idx %>')"> Next Area </button></li>
             </ul>
         </nav>
     </header>

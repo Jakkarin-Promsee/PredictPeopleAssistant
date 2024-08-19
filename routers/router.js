@@ -71,9 +71,11 @@ router.get('/data', async (req, res) => {
         // Define the system message and prediction text
         const predictionText = "The density of people now, area A: 54 people, area B: 67 people, area C: 30 people, area D: 50 people.";
 
-        // Example usage
         const userInput = "I'm a staff member in Area A. What should I do?";
-        const syscontent = "Now you are secretary that helps staff by predicting people density and controlling staff actions."
+
+        const syscontent = "Now you are secretary that helps staff by predicting people density and controlling staff actions.";
+
+
         handleChatAndPredict(syscontent, userInput, predictionText).then(response => {
             // console.log("Assistant Response:", response);
             res.render('areaN', { area_number: area_number, data: graphDataArray[area_number], idx: idx_number, upstage_api: response });
