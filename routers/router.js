@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const path = require("path");
 const fs = require('fs');
 
 router.get('/', (req, res) => {
+    res.send('serve running...');
+});
+
+router.get('/data', (req, res) => {
     const { area, idx } = req.query;
 
     area_number = 0
