@@ -21,3 +21,5 @@ const mongoURI = 'mongodb://localhost:27018/density_of_people';
 app.listen(port, "0.0.0.0", function () {
     console.log("Listening to port:  " + port);
 });
+
+module.exports = app
