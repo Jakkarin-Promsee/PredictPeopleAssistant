@@ -16,8 +16,8 @@
         </h1>
         <nav>
             <ul>
-                <li><button onclick="goTopage('/?area=<% let before = Number(area_number)-1; %> <%= before %>')"> Back Area </button></li>
-                <li><button onclick="goTopage('/?area=<% let after = Number(area_number)+1; %> <%= after %>')"> Next Area </button></li>
+                <li><button onclick="goTopage('/?area=<% let before = Number(area_number)-1; %><%= before %>&idx=<%= idx %>')"> Back Area </button></li>
+                <li><button onclick="goTopage('/?area=<% let after = Number(area_number)+1; %><%= after %>&idx=<%= idx %>')"> Next Area </button></li>
             </ul>
         </nav>
     </header>
@@ -44,12 +44,12 @@
     <script>
 
         document.addEventListener('DOMContentLoaded', () => {
-            console.log([ <%=data.labels%> ])
+            console.log()
             const ctx = document.getElementById('myChart').getContext('2d');
             const myChart = new Chart(ctx, {
                 type: 'line', // Type of chart: 'bar', 'line', 'pie', etc.
                 data: {
-                    labels: [<%=data.labels%>],
+                    labels: [ '<%=data.labels[0]%>', '<%=data.labels[1]%>', '<%=data.labels[2]%>', '<%=data.labels[3]%>', '<%=data.labels[4]%>'],
                     datasets: [{
                         label: 'People',
                         data: [<%=data.values%>],
