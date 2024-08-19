@@ -4,6 +4,9 @@ const router = require('./routers/router.js');
 const path = require("path");
 const app = express();
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 //for use to connect router to response client
 app.use(router);
 
@@ -12,19 +15,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 const port = 3000;
-const mongoURI = 'mongodb://localhost:27017/density_of_people';
-
-mongoose.connect(mongoURI)
-    .then(() => {
-        console.log('Connected to MongoDB');
-        app.listen(port, () => {
-            console.log(`Server is running at http://localhost:${port}`);
-        });
-    })
-    .catch(err => {
-        console.error('Could not connect to MongoDB:', err);
-    });
-
+const mongoURI = 'mongodb://localhost:27018/density_of_people';
 
 //for like local server to port 3000
 app.listen(port, "0.0.0.0", function () {

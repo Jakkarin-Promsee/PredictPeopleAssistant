@@ -3,12 +3,18 @@ const router = express.Router();
 const dataController = require('../controllers/dataController');
 
 router.get('/', (req, res) => {
-    const P0 = '10';
-    const P10 = '50';
-    const P30 = '56';
-    const P60 = '25';
-    const ad = "Help me! please"
-    res.render('test', { P0, P10, P30, P60, ad });
+    const { area } = req.query;
+
+    if (area <= 1) area_number = 1;
+    else if (area >= 5) area_number = 5;
+    else area_number = area;
+
+    const graphData = {
+        labels: ['10.00', '10.30', '11.00', '11.30', '12.00'],
+        values: [12, 19, 25, 54, 23]
+    };
+
+    res.render('areaN', { area_number: area_number, data: graphData });
     //res.send('Welcome to the People Density API!');
 });
 

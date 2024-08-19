@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area <%= area_number %>
+    </title>
+    <link rel="stylesheet" href="area1.css">
+</head>
+
+<body>
+    <header>
+        <h1> Area <%= area_number %>
+
+        </h1>
+        <nav>
+            <ul>
+                <li><button onclick="goTopage('/?area=<% let before = Number(area_number)-1; %> <%= before %>')"> Back Area </button></li>
+                <li><button onclick="goTopage('/?area=<% let after = Number(area_number)+1; %> <%= after %>')"> Next Area </button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="chart-container">
+                <canvas id="myChart" width="600" height="400"></canvas>
+            </div>
+            <div class="advice-container">
+                <p>Advice</p>
+                <div class="search-container">
+                    <input type="text" id="search" placeholder="Search term">
+                    <button id="searchButton">Search</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function goTopage(page) {
+            window.location.href = page;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log([ <%=data.labels%> ])
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line', // Type of chart: 'bar', 'line', 'pie', etc.
+                data: {
+                    labels: [<%=data.labels%>],
+                    datasets: [{
+                        label: 'People',
+                        data: [<%=data.values%>],
+                        //backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        //borderColor: 'rgba(75, 192, 192, 1)',
+                        //borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            document.getElementById('searchButton').addEventListener('click', () => {
+                const searchTerm = document.getElementById('search').value;
+                alert('Search button clicked with term: ' + searchTerm);
+            });
+        });
+    </script>
+</body>
+
+</html>
