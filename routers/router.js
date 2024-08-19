@@ -5,6 +5,7 @@ const fs = require('fs').promises;
 require('dotenv').config();
 const { OpenAI } = require('openai');
 
+
 // Initialize OpenAI client
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
