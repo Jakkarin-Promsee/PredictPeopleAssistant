@@ -16,6 +16,7 @@
         </h1>
         <nav>
             <ul>
+                <li><button onclick="goTopage('/data?area=<% let future = Number(idx)+1; %><%= area_number %>&idx=<%= future %>')"> (test) Go 10minutes future</button></li>
                 <li><button onclick="goTopage('/data?area=<% let before = Number(area_number)-1; %><%= before %>&idx=<%= idx %>')"> Back Area </button></li>
                 <li><button onclick="goTopage('/data?area=<% let after = Number(area_number)+1; %><%= after %>&idx=<%= idx %>')"> Next Area </button></li>
             </ul>
@@ -79,7 +80,9 @@
 
             document.getElementById('searchButton').addEventListener('click', () => {
                 const searchTerm = document.getElementById('search').value;
-                alert('Search button clicked with term: ' + searchTerm);
+                const additionalString = '/q?area=<% let after2 = Number(area_number)+1; %><%= after2 %>&idx=<%= idx %>&q=';
+                const combinedString = additionalString + searchTerm;
+                window.location.href = combinedString;
             });
         });
     </script>
